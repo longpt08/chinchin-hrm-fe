@@ -63,7 +63,18 @@
     "welcomeBack": "Chào mừng trở lại!",
     "clockedIn": "Đã chấm vào",
     "clockedOut": "Đã chấm ra",
-    "taking_photo": "Đang chụp ảnh..."
+    "taking_photo": "Đang chụp ảnh...",
+    "present": "có mặt",
+    "live": "Trực tiếp",
+    "cameraPermissionDenied": "Camera bị từ chối. Vui lòng cấp quyền truy cập.",
+    "cameraUnavailable": "Thiết bị này không có camera.",
+    "retry": "Thử lại",
+    "continueWithoutPhoto": "Tiếp tục không cần ảnh",
+    "takePhoto": "Chụp ảnh",
+    "retake": "Chụp lại",
+    "capturedPhoto": "Ảnh đã chụp",
+    "photoFor": "Ảnh chụp cho",
+    "tapToDismiss": "Chạm để đóng"
   },
   "employees": {
     "title": "Nhân viên",

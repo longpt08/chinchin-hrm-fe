@@ -63,7 +63,18 @@
     "welcomeBack": "Welcome back!",
     "clockedIn": "Clocked In",
     "clockedOut": "Clocked Out",
-    "taking_photo": "Taking photo..."
+    "taking_photo": "Taking photo...",
+    "present": "present",
+    "live": "Live",
+    "cameraPermissionDenied": "Camera permission denied. Please allow access.",
+    "cameraUnavailable": "Camera is unavailable on this device.",
+    "retry": "Retry",
+    "continueWithoutPhoto": "Continue without photo",
+    "takePhoto": "Take Photo",
+    "retake": "Retake",
+    "capturedPhoto": "Captured photo",
+    "photoFor": "Photo for",
+    "tapToDismiss": "Tap anywhere to dismiss"
   },
   "employees": {
     "title": "Employees",
