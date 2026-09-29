@@ -25,7 +25,7 @@ export const ShiftTemplateCard: React.FC<ShiftTemplateCardProps> = ({
         <div>
           <h3 className="text-lg font-semibold text-brand-textMain">{template.name}</h3>
           <div className="flex items-center gap-2 mt-1">
-            <Badge variant={template.isActive ? 'success' : 'neutral'}>
+            <Badge variant={template.isActive ? 'success' : 'default'}>
               {template.isActive ? t('common.active', 'Active') : t('common.inactive', 'Inactive')}
             </Badge>
           </div>

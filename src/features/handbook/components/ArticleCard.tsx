@@ -29,11 +29,11 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
   return (
     <Card className="flex flex-col h-full hover:shadow-medium transition-shadow cursor-pointer" onClick={onView}>
       <div className="flex justify-between items-start mb-4">
-        <Badge variant="outline" className="bg-brand-bg text-brand-textMuted border-brand-border">
+        <Badge variant="default" className="bg-brand-bg text-brand-textMuted border-brand-border">
           {article.category}
         </Badge>
         {isManager && (
-          <Badge variant={article.status === 'published' ? 'success' : 'secondary'}>
+          <Badge variant={article.status === 'published' ? 'success' : 'default'}>
             {t(`handbook.status.${article.status}`, article.status)}
           </Badge>
         )}

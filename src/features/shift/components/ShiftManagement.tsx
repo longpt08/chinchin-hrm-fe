@@ -146,10 +146,11 @@ export const ShiftManagement: React.FC = () => {
             <EmptyState
               title={t('shift.noTemplates', 'No shift templates')}
               description={t('shift.noTemplatesDesc', 'Create your first shift template to start scheduling')}
-              action={{
-                label: t('shift.addTemplate', 'Add Template'),
-                onClick: handleAddTemplate
-              }}
+              action={
+                <Button onClick={handleAddTemplate}>
+                  {t('shift.addTemplate', 'Add Template')}
+                </Button>
+              }
             />
           )}
         </div>

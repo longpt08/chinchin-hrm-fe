@@ -48,7 +48,7 @@ export const AdjustmentForm: React.FC<AdjustmentFormProps> = ({ employees, onSub
         >
           <option value="">{t('payroll.selectEmployee', 'Select Employee')}</option>
           {employees.map(emp => (
-            <option key={emp.id} value={emp.id}>{emp.name || emp.email}</option>
+            <option key={emp.id} value={emp.id}>{emp.name || emp.phone}</option>
           ))}
         </select>
         {errors.userId && <p className="text-status-danger text-xs mt-1">{errors.userId.message}</p>}

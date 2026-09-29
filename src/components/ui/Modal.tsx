@@ -7,8 +7,9 @@ interface ModalProps {
   onClose: () => void
   title?: string
   children: React.ReactNode
-  size?: 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
   hideCloseButton?: boolean
+  className?: string
 }
 
 const sizeClasses = {
@@ -16,6 +17,7 @@ const sizeClasses = {
   md: 'max-w-md',
   lg: 'max-w-lg',
   xl: 'max-w-xl',
+  full: 'max-w-full m-4',
 }
 
 export function Modal({
@@ -25,6 +27,7 @@ export function Modal({
   children,
   size = 'md',
   hideCloseButton = false,
+  className,
 }: ModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null)
 
@@ -65,6 +68,7 @@ export function Modal({
         className={clsx(
           'relative w-full glass rounded-md shadow-medium',
           sizeClasses[size],
+          className
         )}
       >
         {/* Header */}
