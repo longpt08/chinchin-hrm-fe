@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-textMain font-sans;
+    margin: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-sm border border-brand-border;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-primary text-white hover:bg-brand-primaryHover shadow-soft;
+  }
+
+  .btn-secondary {
+    @apply btn bg-brand-secondary text-brand-textMain hover:opacity-90;
+  }
+
+  .btn-outline {
+    @apply btn border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply btn text-brand-textMuted hover:bg-brand-border;
+  }
+
+  .btn-huge {
+    @apply btn px-8 py-4 text-base;
+  }
+
+  .card {
+    @apply glass rounded-md shadow-soft p-6;
+  }
+}
