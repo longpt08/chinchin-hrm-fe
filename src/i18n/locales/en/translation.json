@@ -40,8 +40,20 @@
     "password": "Password",
     "pin": "PIN",
     "loginBtn": "Login",
-    "loginError": "Invalid credentials",
-    "logoutSuccess": "Logged out successfully"
+    "loginError": "Invalid credentials. Please check your details and try again.",
+    "logoutSuccess": "Logged out successfully",
+    "switchToEmployee": "Employee? Sign in here",
+    "switchToManager": "Manager? Sign in here",
+    "validation": {
+      "phoneRequired": "Phone number is required",
+      "phoneMin": "Phone number must be at least 10 characters",
+      "passwordRequired": "Password is required",
+      "passwordMin": "Password must be at least 6 characters",
+      "pinRequired": "PIN is required",
+      "pinMin": "PIN must be at least 4 digits",
+      "pinMax": "PIN must be at most 6 digits",
+      "pinNumeric": "PIN must contain digits only"
+    }
   },
   "kiosk": {
     "title": "ChinChin Coffee",

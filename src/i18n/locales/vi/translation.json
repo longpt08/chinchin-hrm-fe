@@ -40,8 +40,20 @@
     "password": "Mật khẩu",
     "pin": "Mã PIN",
     "loginBtn": "Đăng nhập",
-    "loginError": "Thông tin đăng nhập không đúng",
-    "logoutSuccess": "Đăng xuất thành công"
+    "loginError": "Thông tin đăng nhập không đúng. Vui lòng kiểm tra lại.",
+    "logoutSuccess": "Đăng xuất thành công",
+    "switchToEmployee": "Nhân viên? Đăng nhập tại đây",
+    "switchToManager": "Quản lý? Đăng nhập tại đây",
+    "validation": {
+      "phoneRequired": "Số điện thoại là bắt buộc",
+      "phoneMin": "Số điện thoại phải có ít nhất 10 ký tự",
+      "passwordRequired": "Mật khẩu là bắt buộc",
+      "passwordMin": "Mật khẩu phải có ít nhất 6 ký tự",
+      "pinRequired": "Mã PIN là bắt buộc",
+      "pinMin": "Mã PIN phải có ít nhất 4 chữ số",
+      "pinMax": "Mã PIN tối đa 6 chữ số",
+      "pinNumeric": "Mã PIN chỉ được chứa chữ số"
+    }
   },
   "kiosk": {
     "title": "ChinChin Coffee",
