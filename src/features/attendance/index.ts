@@ -1,34 +1,6 @@
-// ─── Public API barrel export for the attendance feature ─────────────────────
-
-// Types
-export type {
-  ClockInPayload,
-  ClockOutPayload,
-  TimeLogQueryParams,
-  ClockStatus,
-  EmployeeWithStatus,
-  ClockActionResult,
-} from './types'
-
-// API
-export {
-  clockIn,
-  clockOut,
-  getTimeLogs,
-  getTodayLogs,
-  getKioskEmployees,
-} from './api/attendanceApi'
-
-// Hooks
-export {
-  attendanceKeys,
-  useTodayTimeLogs,
-  useKioskEmployees,
-  useClockIn,
-  useClockOut,
-} from './hooks/useTimeLogs'
-
-// Components
-export { DigitalClock } from './components/DigitalClock'
-export { WebcamCapture } from './components/WebcamCapture'
-export { KioskView } from './components/KioskView'
+export * from './types';
+export * from './api/attendanceApi';
+export * from './hooks/useTimeLogs';
+export * from './components/DigitalClock';
+export * from './components/WebcamCapture';
+export * from './components/KioskView';

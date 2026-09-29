@@ -1,83 +1,39 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { clockIn, clockOut, getTodayLogs, getKioskEmployees } from '../api/attendanceApi'
-import type { ClockInPayload, ClockOutPayload } from '../types'
-import type { TimeLog } from '@/types'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { attendanceApi } from '../api/attendanceApi';
+import { ClockInPayload, ClockOutPayload } from '../types';
 
-// ─── Query keys ───────────────────────────────────────────────────────────────
-
-export const attendanceKeys = {
-  all: ['attendance'] as const,
-  todayLogs: () => [...attendanceKeys.all, 'today'] as const,
-  employees: () => [...attendanceKeys.all, 'employees'] as const,
-} as const
-
-// ─── Queries ─────────────────────────────────────────────────────────────────
-
-/**
- * Fetches today's time logs.
- * Refetches every 30 seconds to keep the kiosk grid status fresh.
- */
-export function useTodayTimeLogs() {
+export const useTodayTimeLogs = () => {
   return useQuery({
-    queryKey: attendanceKeys.todayLogs(),
-    queryFn: async () => {
-      const res = await getTodayLogs()
-      return res.data
-    },
-    refetchInterval: 30_000, // 30 s
-    staleTime: 15_000,       // 15 s
-  })
-}
+    queryKey: ['timeLogs', 'today'],
+    queryFn: () => attendanceApi.getTodayLogs(),
+  });
+};
 
-/**
- * Fetches active employee list for the kiosk grid.
- * Refreshes every 5 minutes (employees change infrequently).
- */
-export function useKioskEmployees() {
+export const useEmployees = () => {
   return useQuery({
-    queryKey: attendanceKeys.employees(),
-    queryFn: async () => {
-      const res = await getKioskEmployees()
-      return res.data
-    },
-    staleTime: 5 * 60_000,
-  })
-}
+    queryKey: ['employees'],
+    queryFn: () => attendanceApi.getEmployees(),
+  });
+};
 
-// ─── Mutations ────────────────────────────────────────────────────────────────
-
-/**
- * Clock-in mutation.
- * Optimistically invalidates today's logs so the grid updates immediately.
- */
-export function useClockIn() {
-  const queryClient = useQueryClient()
-
-  return useMutation<TimeLog, Error, ClockInPayload>({
-    mutationFn: async (payload) => {
-      const res = await clockIn(payload)
-      return res.data
-    },
+export const useClockIn = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: (payload: ClockInPayload) => attendanceApi.clockIn(payload),
     onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: attendanceKeys.todayLogs() })
+      queryClient.invalidateQueries({ queryKey: ['timeLogs', 'today'] });
     },
-  })
-}
+  });
+};
 
-/**
- * Clock-out mutation.
- * Optimistically invalidates today's logs so the grid updates immediately.
- */
-export function useClockOut() {
-  const queryClient = useQueryClient()
-
-  return useMutation<TimeLog, Error, ClockOutPayload>({
-    mutationFn: async (payload) => {
-      const res = await clockOut(payload)
-      return res.data
-    },
+export const useClockOut = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: (payload: ClockOutPayload) => attendanceApi.clockOut(payload),
     onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: attendanceKeys.todayLogs() })
+      queryClient.invalidateQueries({ queryKey: ['timeLogs', 'today'] });
     },
-  })
-}
+  });
+};
